@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style media="screen">
+      @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    </style>
+    <title>Pillow</title>
+</head>
+<body style="background-color:#12121C;">
+  <div class="layout">
+    <article class="article1">
+      <div class="title" style="align-items: center;">
+        <h1 class="title_under">현재 급식실은 <br><b>&nbsp;혼잡</b>&nbsp;해요.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+      </div>
+    </article>
+  </div>
+    <div class="layout2">
+      <article class="article2">
+        <div class="flexbox">
+            <div class="item1">
+              <div class="waiting_time">
+                <div class="waiting_time_under">
+                  <h2 class="expecting_waiting">예상 대기시간</h2>
+                  <p class="current_cafe">현재는 급식실이 매우 혼잡해 다른 곳에서 대기하시는 것이 좋습니다.</p>
+                  <h2 class="minutes"><span class="min_num">30+</span>&nbsp;min</h2>
+                </div>
+              </div>
+            </div>
+            <div class="item2">
+              <div class="complexity">
+                <div class="complexity_under">
+                  <h2 class="expecting_complexity">현재 혼잡도</h2>
+                  <p class="current_people">현재는 매우 혼잡 상태로, 약 100명 이상의 사람들이 대기 중 입니다.</p>
+                  <h2 class="complexity_rate">89</h2>
+                  <div class="rainbow_bar_pad">
+                    <div class="rainbow_bar"><div class="circle_pad"><div class="circle_bar"></div></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </article>
+    </div>
+    <div class="mother_of_all">
+      <div class="date_time_up">
+      <div class="date_time">
+        <h1 class="date_h11" style="color: #fff; font-size: 1.5em;">
+          <py-script>
+            import datetime
+            today = datetime.datetime.today()
+            print(today.strftime("%b").upper()+"."+today.strftime("%d"))
+          </py-script>
+        </h1>
+        <strong>
+          <h1 class="date_h12" style="color: #fff; font-size: 5em;">
+            <py-script>
+              print(today.strftime("%a").upper())
+            </py-script>
+          </h1>
+        </strong>
+      </div>
+      </div>
+    <div class="center" style="clear: both; ">
+      <div class="content_box" style="justify-content: center; clear: both;">
+        <div class="flexbox">
+          <div class="item">
+            <div>
+              <div class="property-card">
+                <a href="#">
+                  <div class="property-image">
+                    <div class="property-image-title">
+              <!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
+                    </div>
+                  </div>
+                </a>
+              <div class="property-description">
+                <h5> Breakfast </h5>
+                  <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
+              </div>
+                <a href="#">
+                </a>
+            </div>
+          </div>
+        </div>
+      <div class="item">
+        <div>
+          <div class="property-card">
+            <a href="#">
+              <div class="property-image2">
+                <div class="property-image-title">
+              <!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
+                </div>
+              </div>
+            </a>
+              <div class="property-description">
+                <h5> Lunch </h5>
+                  <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
+              </div>
+                <a href="#">
+                </a>
+            </div>
+          </div>
+        </div>
+      <div class="item">
+        <div>
+          <div class="property-card">
+            <a href="#">
+              <div class="property-image3">
+                <div class="property-image-title">
+              <!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
+                </div>
+              </div>
+            </a>
+              <div class="property-description">
+                <h5> Dinner </h5>
+                  <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
+              </div>
+                <a href="#">
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  // 원하는 URL
+const url = 'https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blBI&pkid=682&os=24929829&qvt=0&query=%ED%8F%AC%EC%82%B0%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90%20%EA%B8%89%EC%8B%9D%EC%8B%9D%EB%8B%A8';
+
+// Fetch API를 이용해 웹페이지의 HTML을 가져옴
+fetch(url)
+  .then(response => response.text())
+  .then(html => {
+    // HTML 문자열을 DOM으로 변환
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    
+    // "time_normal_list" 클래스를 가진 요소를 모두 가져옴
+    const timeNormalList = doc.querySelectorAll('.time_normal_list');
+    
+    // 결과를 출력 또는 다른 작업 수행
+    timeNormalList.forEach(item => {
+      console.log(item.textContent);
+    });
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+</script>
+</html> 
