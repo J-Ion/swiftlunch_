@@ -134,29 +134,4 @@
     </div>
   </div>
 </body>
-<script>
-  // 원하는 URL
-const url = 'https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=blBI&pkid=682&os=24929829&qvt=0&query=%ED%8F%AC%EC%82%B0%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90%20%EA%B8%89%EC%8B%9D%EC%8B%9D%EB%8B%A8';
-
-// Fetch API를 이용해 웹페이지의 HTML을 가져옴
-fetch(url)
-  .then(response => response.text())
-  .then(html => {
-    // HTML 문자열을 DOM으로 변환
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    
-    // "time_normal_list" 클래스를 가진 요소를 모두 가져옴
-    const timeNormalList = doc.querySelectorAll('.time_normal_list');
-    
-    // 결과를 출력 또는 다른 작업 수행
-    timeNormalList.forEach(item => {
-      console.log(item.textContent);
-    });
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-
-</script>
 </html> 
